@@ -1,12 +1,5 @@
 (in-package :google-scholar)
 
-(defstruct citation
-  title
-  authors
-  year
-  publication
-  source)
-
 (defun retrieve-url (url)
   (let ((content (drakma:http-request url)))
     content))
@@ -45,11 +38,11 @@
               (values publication year))
             (values "" (parse-integer (car publication-info) :junk-allowed 1)))
       (let ((authors (split "\\s*,\\s*" authors-str)))
-        (make-citation :title (get-title thunk)
-                       :year year
-                       :publication publication
-                       :source source
-                       :authors authors)))))
+        (list :title (get-title thunk)
+              :year year
+              :publication publication
+              :source source
+              :authors authors)))))
                  
 (defun search-google-scholar (keywords)
   "Retrieve and parse Google Scholar search result. keywords could be
