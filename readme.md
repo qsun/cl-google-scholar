@@ -8,9 +8,9 @@ Dependencies
 ------------
 
 It depends on the following lovely libraries,
-* drakma
-* cl-ppcre
-* hunchentoot
+*    drakma
+*    cl-ppcre
+*    hunchentoot
 
 hunchentoot should be optional, only url-encode is used.
 
